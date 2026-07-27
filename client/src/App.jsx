@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { io } from "socket.io-client"
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Button, Container, Stack, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useMemo } from "react";
 
@@ -9,6 +9,10 @@ const App = () => {
   const [message, setMessage] = useState('')
   const [socketId, setSocketId] = useState('')
   const [room, setRoom] = useState('')
+  const [messages, setMessages] = useState([])
+
+  console.log(messages)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     socket.emit('message', { message, room })
@@ -22,6 +26,7 @@ const App = () => {
     })
     socket.on("receive-message", (data) => {
       console.log(data)
+      setMessages((messages) => [...messages, data])
     })
     socket.on("welcome", (s) => {
       console.log(s)
@@ -55,6 +60,13 @@ const App = () => {
           variant="outlined" />
         <Button variant="contained" color="primary" type="submit">Send</Button>
       </form>
+      <Stack>
+        {messages.map((m, i) => (
+          <Typography key={i} variant="h6" component='div' gutterBottom>
+            {m}
+          </Typography>
+        ))}
+      </Stack>
     </Container>
   );
 };

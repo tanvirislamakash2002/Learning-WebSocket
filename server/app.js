@@ -35,7 +35,8 @@ io.on("connection", (socket) => {
         console.log({ room, message })
         // io.emit("receive-message", data)
         // socket.broadcast.emit("receive-message", data)
-        io.to(room).emit("receive-message", message)
+        socket.to(room).emit("receive-message", message) // socket & io will work like same
+        // io.to(room).emit("receive-message", message)
     })
 
     socket.on("disconnect", () => {
