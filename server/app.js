@@ -28,8 +28,17 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
     console.log("user connected")
     console.log("Id", socket.id)
-    socket.emit("welcome", `welcome to the server`)
-    socket.broadcast.emit("welcome", `${socket.id} joined the server`)
+    // socket.emit("welcome", `welcome to the server`)
+    // socket.broadcast.emit("welcome", `${socket.id} joined the server`)
+
+    socket.on("message", (data) => {
+        console.log(data)
+        io.emit("message", data)
+    })
+
+    socket.on("disconnect", () => {
+        console.log("user disconnected", socket.id)
+    })
 })
 
 server.listen(port, () => {
