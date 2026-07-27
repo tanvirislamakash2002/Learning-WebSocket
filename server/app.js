@@ -28,6 +28,8 @@ app.get("/", (req, res) => {
 io.on("connection", (socket) => {
     console.log("user connected")
     console.log("Id", socket.id)
+    socket.emit("welcome", `welcome to the server`)
+    socket.broadcast.emit("welcome", `${socket.id} joined the server`)
 })
 
 server.listen(port, () => {
