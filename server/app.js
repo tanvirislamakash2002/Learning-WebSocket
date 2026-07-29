@@ -25,6 +25,11 @@ app.get("/", (req, res) => {
     res.send("Hello world")
 })
 
+const user = true;
+io.use((socket, next) => {
+    if (user) next()
+})
+
 io.on("connection", (socket) => {
     console.log("user connected")
     console.log("Id", socket.id)
