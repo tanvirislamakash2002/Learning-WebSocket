@@ -5,7 +5,9 @@ import { useState } from "react";
 import { useMemo } from "react";
 
 const App = () => {
-  const socket = useMemo(() => io("http://localhost:3000"), [])
+  const socket = useMemo(() => io("http://localhost:3000", {
+    withCredentials: true
+  }), [])
   const [messages, setMessages] = useState([])
   const [message, setMessage] = useState('')
   const [socketId, setSocketId] = useState('')
