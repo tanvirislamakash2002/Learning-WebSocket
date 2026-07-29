@@ -2,6 +2,10 @@ import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import cors from "cors";
+import jwt from "jsonwebtoken";
+
+
+const secretKeyJWT = "oidshniujasdfhniuh"
 
 const port = 3000
 const app = express()
@@ -24,6 +28,16 @@ app.use(cors({
 app.get("/", (req, res) => {
     res.send("Hello world")
 })
+
+app.get("/login", (req, res) => {
+    const token = jwt.sign({ _id: "aaslkdfjoih" }, secretKeyJWT)
+    res
+        .cookie("token", token, { httpOnly: true, secure: true, sameSite: "none" })
+        .json({
+            message: "login success"
+        })
+})
+
 
 const user = true;
 io.use((socket, next) => {
