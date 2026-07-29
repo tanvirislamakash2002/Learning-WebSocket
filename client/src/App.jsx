@@ -6,10 +6,11 @@ import { useMemo } from "react";
 
 const App = () => {
   const socket = useMemo(() => io("http://localhost:3000"), [])
+  const [messages, setMessages] = useState([])
   const [message, setMessage] = useState('')
   const [socketId, setSocketId] = useState('')
   const [room, setRoom] = useState('')
-  const [messages, setMessages] = useState([])
+  const [roomName, setRoomName] = useState('')
 
   console.log(messages)
 
@@ -17,6 +18,11 @@ const App = () => {
     e.preventDefault()
     socket.emit('message', { message, room })
     setMessage("")
+  }
+  const joinRoomHandler = (e) => {
+    e.preventDefault()
+    socket.emit('join-room', roomName)
+    setRoomName("")
   }
 
   useEffect(() => {
@@ -45,6 +51,15 @@ const App = () => {
       <Typography variant="h5" component='div' gutterBottom>
         {socketId}
       </Typography>
+      <form onSubmit={joinRoomHandler}>
+        <TextField
+          value={roomName}
+          onChange={e => setRoomName(e.target.value)}
+          id="outlined-basic"
+          label="Room Name"
+          variant="outlined" />
+        <Button variant="contained" color="primary" type="submit">Join</Button>
+      </form>
       <form onSubmit={handleSubmit}>
         <TextField
           value={message}
