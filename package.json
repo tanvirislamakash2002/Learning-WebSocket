@@ -1,20 +1,26 @@
 {
-  "name": "jm-websocket-course",
+  "name": "jm-websocket-course-project",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node --watch server.js"
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanvirislamakash2002/Learning-WebSocket.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
-  "dependencies": {
-    "ws": "^8.21.1"
+  "bugs": {
+    "url": "https://github.com/tanvirislamakash2002/Learning-WebSocket/issues"
   },
-  "devDependencies": {
-    "@types/node": "^26.1.2",
-    "@types/ws": "^8.18.1"
+  "homepage": "https://github.com/tanvirislamakash2002/Learning-WebSocket#readme",
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
