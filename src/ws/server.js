@@ -1,4 +1,4 @@
-import { WebSocket } from "ws";
+import { WebSocket, WebSocketServer } from "ws";
 
 function sendJson(socket, payload) {
     if (socket.readyState === WebSocket.OPEN) {
@@ -22,8 +22,13 @@ export function attachWebSocketServer(server) {
         socket.on('error', console.error);
     });
 
+    function broadcastMatchCreated(match) {
+        broadcast(wss, { type: 'match_created', data: match });
+    }
+
     function broadcastMatchUpdate(match) {
         broadcast(wss, { type: 'match_update', data: match });
     }
-    return { broadcastMatchUpdate };
+
+    return { broadcastMatchCreated, broadcastMatchUpdate };
 }
