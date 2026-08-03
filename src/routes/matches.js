@@ -7,14 +7,14 @@ import { getMatchStatus } from '../utils/match-status.js';
 
 export const matchRouter = Router();
 const MAX_LIMIT = 100;
-matchRouter.get('/', async(req, res) => {
+matchRouter.get('/', async (req, res) => {
     const parsed = listMatchesQuerySchema.safeParse(req.query);
 
     if (!parsed.success) {
-        return res.status(400).json({error: "Invalid query parameters", details: parsed.error.flatten().fieldErrors });
+        return res.status(400).json({ error: "Invalid query parameters", details: parsed.error.issues });
     }
 
-    const limit =Math.min(parsed.data.limit ?? 50, MAX_LIMIT);
+    const limit = Math.min(parsed.data.limit ?? 50, MAX_LIMIT);
 
     try {
         const data = await db
@@ -34,18 +34,21 @@ matchRouter.post('/', async (req, res) => {
     const parsed = createMatchSchema.safeParse(req.body);
 
     if (!parsed.success) {
-        return res.status(400).json({error:"Invalid payload", details: parsed.error.flatten().fieldErrors });
+        return res.status(400).json({
+            error: "Invalid payload",
+            details: parsed.error.issues
+        });
     }
 
+    const { data:{startTime, endTime, homeScore, awayScore} } = parsed;
     try {
-        const { data } = parsed;
         const [event] = await db.insert(matches).values({
-            ...data,
-            startTime: new Date(data.startTime),
-            endTime: data.endTime ? new Date(data.endTime) : null,
-            homeScore: data.homeScore ?? 0,
-            awayScore: data.awayScore ?? 0,
-            status: getMatchStatus(data.startTime, data.endTime),
+            ...parsed.data,
+            startTime: new Date(startTime),
+            endTime: endTime ? new Date(endTime) : null,
+            homeScore: homeScore ?? 0,
+            awayScore: awayScore ?? 0,
+            status: getMatchStatus(startTime, endTime),
         }).returning();
 
         res.status(201).json({ message: 'Match created successfully', data: event });

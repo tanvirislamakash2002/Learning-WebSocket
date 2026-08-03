@@ -6,10 +6,6 @@ export const MATCH_STATUS = {
   FINISHED: 'finished',
 };
 
-const isoDateStringSchema = z.string().trim().refine((value) => !Number.isNaN(Date.parse(value)), {
-  message: 'Must be a valid ISO date string',
-});
-
 export const listMatchesQuerySchema = z.object({
   limit: z.coerce.number().int().positive().max(100).optional(),
 });
@@ -23,8 +19,8 @@ export const createMatchSchema = z
     sport: z.string().trim().min(1, 'Sport is required'),
     homeTeam: z.string().trim().min(1, 'Home team is required'),
     awayTeam: z.string().trim().min(1, 'Away team is required'),
-    startTime: z.string().trim(),
-    endTime: z.string().trim().optional(),
+    startTime: z.iso.datetime(),
+    endTime: z.iso.datetime(),
     homeScore: z.coerce.number().int().nonnegative().optional(),
     awayScore: z.coerce.number().int().nonnegative().optional(),
   })
