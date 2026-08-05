@@ -1,0 +1,156 @@
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "events"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::prototype.addListener 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "http"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::createServer 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Server 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::request 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::get 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "https"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::createServer 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Server 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::request 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::get 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "http2"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::createSecureServer 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Http2ServerRequest.prototype.setTimeout 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Http2ServerResponse.prototype.end 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Http2ServerResponse.prototype.setTimeout 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Http2ServerResponse.prototype.createPushResponse 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "net"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Server.prototype.getConnections 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Server.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.setTimeout 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.write 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.connect 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::createConnection 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Server.prototype.listen 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "fs"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::access 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::ftruncate 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::mkdir 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::mkdtemp 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::readdir 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::readFile 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::readlink 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::realpath 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::truncate 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::appendFile 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::symlink 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::copyFile 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::open 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::writeFile 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::chmod 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::fchmod 
+[5/8/2026 23:29:58] [INFO] lchmod is undefined in module::fs 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::link 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::rename 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::chown 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::fchown 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::lchown 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::futimes 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::utimes 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::exists 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::fdatasync 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::fstat 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::fsync 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::lstat 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::stat 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::rmdir 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::unlink 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::read 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::write 
+[5/8/2026 23:29:58] [INFO] realpath.native is undefined in module::fs 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "dns"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::lookupService 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::lookup 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolve 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolve4 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolve6 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveCname 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveMx 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveNaptr 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveNs 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolvePtr 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveSoa 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveSrv 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveTxt 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::resolveAny 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::reverse 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "crypto"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::pbkdf2 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::randomBytes 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::randomFill 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::generateKeyPair 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::scrypt 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "domain"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Domain.prototype.bind 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Domain.prototype.intercept 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "zlib"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Deflate.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Inflate.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Gzip.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Gunzip.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::DeflateRaw.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::InflateRaw.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Unzip.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Deflate.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Inflate.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Gzip.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Gunzip.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::DeflateRaw.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::InflateRaw.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Unzip.prototype.flush 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Deflate.prototype.params 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::deflate 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::deflateRaw 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::gunzip 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::gzip 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::inflate 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::inflateRaw 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::unzip 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "child_process"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::exec 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::execFile 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "cluster"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::disconnect 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Worker.prototype.send 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "process"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::send 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::nextTick 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "dgram"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.bind 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.close 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Socket.prototype.send 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::createSocket 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "tls"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::connect 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::TLSSocket.prototype.renegotiate 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "stream"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Writable.prototype.write 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Writable.prototype.end 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::finished 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::pipeline 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "global"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::setImmediate 
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::setTimeout 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "inspector"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Session.prototype.post 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "worker_threads"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Worker.prototype.terminate 
+[5/8/2026 23:29:58] [INFO] Instrumenting module:: "readline"
+[5/8/2026 23:29:58] [INFO] Instrumenting function ::Interface.prototype.question 
+[5/8/2026 23:29:58] [INFO] Dependencies : {"@arcjet/inspect":"^1.9.1","@arcjet/node":"^1.9.1","apminsight":"^5.5.1","dotenv":"^17.4.2","drizzle-kit":"^0.31.10","drizzle-orm":"^0.45.2","express":"^5.2.1","pg":"^8.22.0","ws":"^8.21.1","zod":"^4.4.3"} 
+[5/8/2026 23:29:58] [INFO] Application not hosted in Kubernetes. 
+[5/8/2026 23:30:1] [ERROR] HTTP request error: socket hang up 
+[5/8/2026 23:30:1] [ERROR] HTTP request error: socket hang up 
+[5/8/2026 23:30:1] [INFO] Application not hosted in AWS. 
+[5/8/2026 23:30:2] [ERROR] HTTP request error: socket hang up 
+[5/8/2026 23:30:2] [INFO] Application not hosted in Azure 
+[5/8/2026 23:30:2] [ERROR] HTTP request error: getaddrinfo ENOTFOUND metadata.google.internal 
+[5/8/2026 23:30:2] [INFO] Application not hosted in GCP 
+[5/8/2026 23:30:2] [ERROR] HTTP request error: socket hang up 
+[5/8/2026 23:30:2] [INFO] Application name: sportz 
+[5/8/2026 23:30:2] [INFO] Application not hosted in docker. 
+[5/8/2026 23:30:2] [INFO] Application not hosted in AWS_Fargate 
+[5/8/2026 23:30:2] [INFO] intiating /arh/connect request to plusinsight.site24x7.com:443 
