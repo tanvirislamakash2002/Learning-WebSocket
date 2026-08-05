@@ -1,13 +1,49 @@
 import { Router } from "express";
+import { desc, eq } from "drizzle-orm";
 import { db } from "../db/db.js";
 import { commentary } from "../db/schema.js";
 import { matchIdParamSchema } from "../validation/matches.js";
-import { createCommentarySchema } from "../validation/commentary.js";
+import {
+  createCommentarySchema,
+  listCommentaryQuerySchema,
+} from "../validation/commentary.js";
 
-export const commentaryRouter = Router();
+export const commentaryRouter = Router({ mergeParams: true });
 
-commentaryRouter.get("/", (req, res) => {
-  res.status(200).json({ message: "commentary list" });
+const MAX_LIMIT = 100;
+
+commentaryRouter.get("/", async (req, res) => {
+  const parsedParams = matchIdParamSchema.safeParse(req.params);
+  if (!parsedParams.success) {
+    return res.status(400).json({
+      error: "Invalid match id",
+      details: parsedParams.error.issues,
+    });
+  }
+
+  const parsedQuery = listCommentaryQuerySchema.safeParse(req.query);
+  if (!parsedQuery.success) {
+    return res.status(400).json({
+      error: "Invalid query parameters",
+      details: parsedQuery.error.issues,
+    });
+  }
+
+  const limit = Math.min(parsedQuery.data.limit ?? MAX_LIMIT, MAX_LIMIT);
+
+  try {
+    const data = await db
+      .select()
+      .from(commentary)
+      .where(eq(commentary.matchId, parsedParams.data.id))
+      .orderBy(desc(commentary.createdAt))
+      .limit(limit);
+
+    res.status(200).json({ data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to list commentary", details: error.message });
+  }
 });
 
 commentaryRouter.post("/", async (req, res) => {
@@ -32,7 +68,7 @@ commentaryRouter.post("/", async (req, res) => {
       .insert(commentary)
       .values({
         matchId: parsedParams.data.id,
-        minute: parsedBody.data.minutes,
+        minute: parsedBody.data.minute,
         sequence: parsedBody.data.sequence,
         period: parsedBody.data.period,
         eventType: parsedBody.data.eventType,

@@ -11,7 +11,7 @@ const app = express();
 const server = http.createServer(app);
 
 const requestedPort = Number(process.env.PORT) || 8000;
-const portToUse = requestedPort === 8000 ? 8001 : requestedPort;
+const portToUse = requestedPort === 8000 ? 8000 : requestedPort;
 
 app.use(express.json());
 
@@ -19,10 +19,12 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Hello World" });
 });
 
-app.use(securityMiddleware());
+if (process.env.NODE_ENV === 'production') {
+  app.use(securityMiddleware());
+}
 
 app.use("/matches", matchRouter);
-app.use("/matches/:id/commentory", commentaryRouter);
+app.use("/matches/:id/commentary", commentaryRouter);
 
 const { broadcastMatchCreated } = attachWebSocketServer(server);
 app.locals.broadcastMatchCreated = broadcastMatchCreated;
