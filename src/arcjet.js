@@ -14,7 +14,7 @@ export const httpArcjet = arcjetKey
     })
   : null;
 
-export const wsArcjet = arcjetKey
+export const wsArcjet = arcjetKey && process.env.NODE_ENV === 'production'
   ? arcjet({
       key: arcjetKey,
       rules: [

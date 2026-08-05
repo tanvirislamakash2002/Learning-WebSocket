@@ -20,7 +20,7 @@ function unsubscribe(matchId, socket) {
 }
 
 function cleanupSubscribers(socket) {
-    for (const matchId of socket.subscribedMatches || []) {
+    for (const matchId of socket.subscription || []) {
         unsubscribe(matchId, socket);
     }
 }
@@ -34,9 +34,8 @@ function sendJson(socket, payload) {
 
 function broadcastToAll(wss, payload) {
     for (const client of wss.clients) {
-        if (client.readyState === WebSocket.OPEN) continue
+        if (client.readyState !== WebSocket.OPEN) continue;
         client.send(JSON.stringify(payload));
-
     }
 }
 
@@ -56,22 +55,23 @@ function handleMessage(socket, data) {
     let message;
     try {
         message = JSON.parse(data.toString());
-    } catch {
+    } catch (err) {
         sendJson(socket, { type: 'error', error: 'Invalid JSON' });
+        return;
     }
 
     if (message?.type === 'subscribe' && Number.isInteger(message.matchId)) {
         subscribe(message.matchId, socket);
         socket.subscription.add(message.matchId);
         sendJson(socket, { type: 'subscribed', matchId: message.matchId });
-        return
+        return;
     }
 
     if (message?.type === 'unsubscribe' && Number.isInteger(message.matchId)) {
         unsubscribe(message.matchId, socket);
         socket.subscription.delete(message.matchId);
         sendJson(socket, { type: 'unsubscribed', matchId: message.matchId });
-        return
+        return;
     }
 }
 

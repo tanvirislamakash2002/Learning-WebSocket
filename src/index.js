@@ -26,8 +26,9 @@ if (process.env.NODE_ENV === 'production') {
 app.use("/matches", matchRouter);
 app.use("/matches/:id/commentary", commentaryRouter);
 
-const { broadcastMatchCreated } = attachWebSocketServer(server);
+const { broadcastMatchCreated, broadcastCommentary } = attachWebSocketServer(server);
 app.locals.broadcastMatchCreated = broadcastMatchCreated;
+app.locals.broadcastCommentary = broadcastCommentary;
 
 function startServer(port) {
   const listener = server.listen(port, HOST, () => {
